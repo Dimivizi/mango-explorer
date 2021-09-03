@@ -1203,7 +1203,7 @@ INIT_MANGO_ACCOUNT = construct.Struct(
 # 5. `[writable]` asksPk
 # 6. `[writable]` eventQueuePk
 CANCEL_PERP_ORDER = construct.Struct(
-    "variant" / construct.Const(14, construct.BytesInteger(4, swapped=True)),
+    "variant" / construct.Const(9, construct.BytesInteger(4, swapped=True)),
 
     "order_id" / DecimalAdapter(16),
     "invalid_id_ok" / construct.Flag
