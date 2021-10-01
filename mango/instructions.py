@@ -392,7 +392,7 @@ def build_place_perp_order_instructions(context: Context, wallet: Wallet, group:
     # /// 6. `[writable]` asks_ai - TODO
     # /// 7. `[writable]` event_queue_ai - TODO
 
-        instructions = [
+    instructions = [
         TransactionInstruction(
             keys=[
                 AccountMeta(is_signer=False, is_writable=True, pubkey=wallet.investin_state),
@@ -418,7 +418,7 @@ def build_place_perp_order_instructions(context: Context, wallet: Wallet, group:
                 AccountMeta(is_signer=False, is_writable=True, pubkey=perp_market_details.asks),
                 AccountMeta(is_signer=False, is_writable=True, pubkey=perp_market_details.event_queue),
                 *list([AccountMeta(is_signer=False, is_writable=False,
-                                   pubkey=oo_address or SYSTEM_PROGRAM_ADDRESS) for oo_address in account.spot_open_orders])
+                    pubkey=oo_address or SYSTEM_PROGRAM_ADDRESS) for oo_address in account.spot_open_orders])
             ],
             program_id = wallet.investin_id if wallet.investin_id else context.mango_program_address,
             data=layouts.PLACE_PERP_ORDER.build(
