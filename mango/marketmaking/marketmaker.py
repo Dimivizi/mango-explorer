@@ -92,7 +92,8 @@ class MarketMaker:
             if self.redeem_threshold is not None and model_state.inventory.liquidity_incentives.value > self.redeem_threshold:
                 redeem = self.market_instruction_builder.build_redeem_instructions()
 
-            (payer + cancellations + place_orders + crank + settle + redeem).execute(context)
+            # (payer + cancellations + place_orders + crank + settle + redeem).execute(context)
+            (payer + cancellations + place_orders + crank + settle).execute(context)
 
             self.pulse_complete.on_next(datetime.now())
         except Exception as exception:
