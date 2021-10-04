@@ -87,7 +87,7 @@ disposer.add_disposable(health_check)
 
 wallet = mango.Wallet.from_command_line_parameters_or_raise(args)
 group = mango.Group.load(context, context.group_address)
-account = mango.Account.load_all_for_owner(context, wallet.investin_fund if args.investin else wallet.address, group)[0]
+account = mango.Account.load_for_owner_by_address(context, wallet.investin_fund if args.investin else wallet.address, group, None)
 
 market = mango.load_market_by_symbol(context, args.market)
 
